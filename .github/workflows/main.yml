@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SonarQube Scan
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: madgets/sonarqube-action@master
+      with:
+          host: http://172.17.5.245:9088
+          projectKey: testpj
+          projectName: testpj
+          projectVersion: testforgithub5020099
+          projectBaseDir: .
+          login: admin
+          password: admin
